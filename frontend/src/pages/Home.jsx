@@ -7,7 +7,7 @@ const products = Array.from({ length: 36 }, (_, i) => ({
   id: i + 1,
   name: `Product ${i + 1}`,
   price: `₹${(i + 1) * 10}`,
-  image: `./src/images/image${(i % 5) + 1}.jpeg`, // replace with your images
+  image: `../public/images/image${(i % 5) + 1}.jpeg`, // replace with your images
   description:
     "High-quality agricultural product suitable for farmers and businesses."
 }));
