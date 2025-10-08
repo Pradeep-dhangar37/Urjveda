@@ -7,7 +7,7 @@ const products = Array.from({ length: 36 }, (_, i) => ({
   id: i + 1,
   name: `Product ${i + 1}`,
   price: `₹${(i + 1) * 10}`,
-  image: `/assets/images/image${(i % 5) + 1}.jpeg`, // replace with your images
+  image: `./src/images/image${(i % 5) + 1}.jpeg`, // replace with your images
   description:
     "High-quality agricultural product suitable for farmers and businesses."
 }));
@@ -101,12 +101,12 @@ const Hero = () => {
 // Home Component
 const Home = () => {
   return (
-    <section id="home" className="pt-28 px-6">
-      {/* Hero */}
+    <>
+    <section id="home" className="pt-28">
       <Hero />
-
-      {/* Product Grid */}
-      <div id="products" className="py-16">
+      </section>
+      <section id="product" className="pt-28 px-6">
+        <div id="products" className="py-16">
         <h2 className="text-4xl font-bold mb-10 text-center">Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {products.map((product) => (
@@ -114,7 +114,10 @@ const Home = () => {
           ))}
         </div>
       </div>
-    </section>
+      </section>
+     </>
+      
+    
   );
 };
 
