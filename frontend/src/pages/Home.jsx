@@ -102,7 +102,7 @@ const Hero = () => {
 const Home = () => {
   return (
     <>
-    <section id="home" className="pt-15">
+    <section id="home" className="pt-20">
       <Hero />
       </section>
       <section id="product" className="pt-10 px-6">
