@@ -7,13 +7,13 @@ const products = Array.from({ length: 36 }, (_, i) => ({
   id: i + 1,
   name: `Product ${i + 1}`,
   price: `₹${(i + 1) * 10}`,
-  image: `./src/images/image${(i % 5) + 1}.jpeg`, // replace with your images
+  image: `/assets/images/image${(i % 5) + 1}.jpeg`, // replace with your images
   description:
     "High-quality agricultural product suitable for farmers and businesses."
 }));
 
 // Product Card Component
-const ProductCard = ({ product, index }) => {
+const ProductCard = ({ product }) => {
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -29,7 +29,7 @@ const ProductCard = ({ product, index }) => {
 
   return (
     <animated.div ref={ref} style={spring} className="relative cursor-pointer group">
-      {/* Card with same background as website */}
+      {/* Card with website background */}
       <div className="relative overflow-hidden rounded-lg shadow-lg bg-white">
         {/* Product Image */}
         <img
@@ -41,8 +41,12 @@ const ProductCard = ({ product, index }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white opacity-30 pointer-events-none"></div>
 
         {/* Buy Now Button */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-500">
-          <button className="bg-white/80 backdrop-blur-md text-green-700 font-semibold px-6 py-2 rounded-full shadow hover:bg-white transition">
+        <div
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 
+                     opacity-100 sm:opacity-0 group-hover:opacity-100 
+                     transition duration-500"
+        >
+          <button className="bg-white/80 backdrop-blur-md text-green-700 font-semibold px-4 sm:px-6 py-2 rounded-full shadow hover:bg-white transition text-sm sm:text-base">
             Buy Now →
           </button>
         </div>
@@ -58,7 +62,6 @@ const ProductCard = ({ product, index }) => {
   );
 };
 
-
 // Hero Section Component
 const Hero = () => {
   const spring = useSpring({
@@ -70,18 +73,18 @@ const Hero = () => {
   return (
     <animated.div
       style={spring}
-      className="relative h-[60vh] flex items-center justify-center text-center overflow-hidden"
+      className="relative h-[40vh] sm:h-[60vh] flex items-center justify-center text-center overflow-hidden w-full"
     >
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX0AuqubPpLw89VY0JXYQuhpK_LqRYF0I1mg&s"
         alt="Agriculture"
         className="absolute inset-0 w-full h-full object-cover brightness-50"
       />
-      <div className="relative z-10 px-4 max-w-2xl text-white">
-        <h1 className="text-5xl font-bold mb-4 tracking-tight">
+      <div className="relative z-10 px-4 max-w-2xl text-white w-full">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
           Explore Agriculture Products
         </h1>
-        <p className="text-lg mb-6">
+        <p className="text-base sm:text-lg mb-6">
           High-quality agricultural products for farmers and businesses. Browse and buy now!
         </p>
         <a
@@ -106,8 +109,8 @@ const Home = () => {
       <div id="products" className="py-16">
         <h2 className="text-4xl font-bold mb-10 text-center">Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {products.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
