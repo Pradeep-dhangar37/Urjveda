@@ -184,6 +184,7 @@ const Hero = () => {
 
 // Home Component
 const Home = () => {
+   const [selectedProduct, setSelectedProduct] = useState(null);
   return (
     <>
     <section id="home" className="pt-28">
