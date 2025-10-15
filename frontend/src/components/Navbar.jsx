@@ -51,6 +51,7 @@ const Navbar = () => {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
+               onClick={() => setMenuOpen(false)}
               className="block py-2 text-gray-700 hover:text-gray-900"
             >
               {link}
