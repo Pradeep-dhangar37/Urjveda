@@ -187,10 +187,10 @@ const Home = () => {
    const [selectedProduct, setSelectedProduct] = useState(null);
   return (
     <>
-    <section id="home" className="pt-28">
+    <section id="home" className="pt-20">
       <Hero />
       </section>
-      <section id="product" className="pt-28 px-6">
+      <section id="product" className="pt-15 px-6">
         <div id="products" className="py-16">
         <h2 className="text-4xl font-bold mb-10 text-center">Our Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
